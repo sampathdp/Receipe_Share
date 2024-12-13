@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Recipes</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.8rem;
+        }
+
+        nav {
+            display: flex;
+            gap: 1rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            background-color: #3b8b40;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #2e6d32;
+        }
+
+        main {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Recipe Cards */
+        .recipe-cards {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            width: 280px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #4CAF50;
+        }
+
+        .card p {
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        .card img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+            border-radius: 8px;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .card a {
+            display: inline-block;
+            text-decoration: none;
+            background-color: #4CAF50;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .card a:hover {
+            background-color: #3b8b40;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background-color: #4CAF50;
+            color: white;
+            margin-top: 2rem;
+        }
+
+        p {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #777;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Recipe Sharing Website</h1>
+        <nav>
+            <a href="/" class="btn">Home</a>
+            <a href="/add-recipe" class="btn">Add Recipe</a>
+            <a href="/logout" class="btn">Logout</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>All Recipes</h2>
+        <div class="recipe-cards">
+            <% if (recipes.length> 0) { %>
+                <% recipes.forEach(recipe=> { %>
+                    <div class="card">
+                        <h3>
+                            <%= recipe.title %>
+                        </h3>
+                        <p>
+                            <%= recipe.description %>
+                        </p>
+                        <% if (recipe.image) { %>
+                            <img src="<%= recipe.image %>" alt="<%= recipe.title %>" class="recipe-image">
+                            <% } %>
+                                <a href="/recipe/<%= recipe.id %>" class="btn">View Recipe</a>
+                    </div>
+                    <% }); %>
+                        <% } else { %>
+                            <p>No recipes available yet. Add some!</p>
+                            <% } %>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Recipe Sharing Website</p>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= recipe.title %> - Recipe Details</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.8rem;
+        }
+
+        nav {
+            display: flex;
+            gap: 1rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            background-color: #3b8b40;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #2e6d32;
+        }
+
+        main {
+            padding: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .recipe-detail {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .recipe-detail h3 {
+            margin-top: 1.5rem;
+            font-size: 1.3rem;
+            color: #4CAF50;
+        }
+
+        .recipe-detail p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .recipe-detail img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background-color: #4CAF50;
+            color: white;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1><%= recipe.title %> - Recipe Details</h1>
+        <nav>
+            <a href="/view-recipes" class="btn">Back to Recipes</a>
+            <a href="/logout" class="btn">Logout</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="recipe-detail">
+            <% if (recipe.image) { %>
+                <img src="<%= recipe.image %>" alt="<%= recipe.title %>" class="recipe-detail-image">
+            <% } %>
+
+            <h3>Description:</h3>
+            <p><%= recipe.description %></p>
+
+            <h3>Ingredients:</h3>
+            <p><%= recipe.ingredients %></p>
+
+            <h3>Instructions:</h3>
+            <p><%= recipe.instructions %></p>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Recipe Sharing Website</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home - Recipe Sharing</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+      color: #333;
+    }
+
+    header {
+      background-color: #4CAF50;
+      color: white;
+      padding: 1rem 0;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    header h1 {
+      text-align: center;
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      margin-top: 1rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: white;
+      background-color: #3b8b40;
+      padding: 0.5rem 1rem;
+      margin: 0 0.5rem;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: #2e6d32;
+    }
+
+    main {
+      padding: 2rem 0;
+    }
+
+    .intro {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .intro h2 {
+      font-size: 1.8rem;
+      color: #4CAF50;
+    }
+
+    .recipe-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 1rem;
+      width: 300px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card h3 {
+      margin: 0 0 0.5rem 0;
+      color: #4CAF50;
+    }
+
+    .card p {
+      color: #666;
+      font-size: 0.9rem;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    footer {
+      background-color: #4CAF50;
+      color: white;
+      text-align: center;
+      padding: 1rem 0;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <h1>Welcome to the Recipe Sharing Website!</h1>
+      <nav>
+        <a href="/add-recipe" class="btn">Add Recipe</a>
+        <a href="/view-recipes" class="btn">View Recipes</a>
+        <a href="/logout" class="btn">Logout</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <section class="intro">
+        <h2>Latest Recipes</h2>
+        <p>Explore a variety of delicious recipes, and feel free to add your own!</p>
+      </section>
+
+      <section class="recipe-cards">
+        <% if (recipes && recipes.length> 0) { %>
+          <% recipes.forEach(recipe=> { %>
+            <div class="card">
+              <h3>
+                <%= recipe.title %>
+              </h3>
+              <p>
+                <%= recipe.description %>
+              </p>
+              <img src="<%= recipe.image %>" alt="<%= recipe.title %>" />
+            </div>
+            <% }); %>
+              <% } else { %>
+                <p>No recipes found</p>
+                <% } %>
+      </section>
+
+    </div>
+  </main>
+
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2024 Recipe Sharing Website. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+
+</html>
