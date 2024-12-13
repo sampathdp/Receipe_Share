@@ -5,6 +5,7 @@ const bcrypt = require('bcrypt');
 const session = require('express-session');
 const multer = require('multer');
 const path = require('path');
+const bcrypt = require('bcryptjs');
 const app = express();
 const port = 3000;
 
