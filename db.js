@@ -1,10 +1,10 @@
 const mysql = require('mysql2');
 
 const db = mysql.createConnection({
-  host: 'mysql.railway.internal',
-  user: 'root',
-  password: 'BfRztFGwpOFpQzsyPkPMkTSEBYjYAjtY', // Add your MySQL password
-  database: 'railway',
+  host: 'sql.freedb.tech',
+  user: 'freedb_sampath',
+  password: 'KXhFA#RBH5bkJs&', // Add your MySQL password
+  database: 'freedb_receipe_db',
 });
 
 db.connect((err) => {
