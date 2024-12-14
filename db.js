@@ -1,10 +1,10 @@
 const mysql = require('mysql2');
 
 const db = mysql.createConnection({
-  host: 'mysql.railway.internal',
-  user: 'root',
-  password: 'BfRztFGwpOFpQzsyPkPMkTSEBYjYAjtY', // Add your MySQL password
-  database: 'railway',
+  host: 'sql304.infinityfree.com',
+  user: 'if0_37557751',
+  password: 'Sampath10', // Add your MySQL password
+  database: 'if0_37557751_recipe_db',
 });
 
 db.connect((err) => {
