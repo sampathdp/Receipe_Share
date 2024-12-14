@@ -5,6 +5,7 @@ const db = mysql.createConnection({
   user: 'freedb_sampath',
   password: 'KXhFA#RBH5bkJs&', // Add your MySQL password
   database: 'freedb_receipe_db',
+  port: 3306,
 });
 
 db.connect((err) => {
